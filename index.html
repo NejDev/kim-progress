@@ -7,7 +7,6 @@
     <style>
       :root {
         --bg: #0f172a;
-        --card: #111827;
         --text: #e5e7eb;
         --muted: #9ca3af;
         --border: rgba(255, 255, 255, 0.1);
@@ -30,76 +29,338 @@
         line-height: 1.5;
       }
 
-      .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 40px 0 64px; }
-      header { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; margin-bottom: 28px; }
-      h1 { margin: 0; font-size: clamp(2rem, 5vw, 4rem); letter-spacing: -0.05em; line-height: 1; }
-      .subtitle { color: var(--muted); max-width: 760px; font-size: 1rem; margin-top: 14px; }
-      .badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px; background: rgba(255, 255, 255, 0.04); color: var(--muted); font-size: 0.9rem; white-space: nowrap; }
-      .dot { width: 9px; height: 9px; border-radius: 999px; background: var(--done); box-shadow: 0 0 16px var(--done); }
-      .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 18px; margin-bottom: 18px; }
-      .card, .phase { background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025)); border: 1px solid var(--border); border-radius: 22px; padding: 22px; box-shadow: 0 18px 60px rgba(0,0,0,0.24); }
+      .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 40px 0 64px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: flex-start;
+        margin-bottom: 28px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 4rem);
+        letter-spacing: -0.05em;
+        line-height: 1;
+      }
+
+      h2 {
+        margin: 0 0 14px;
+        letter-spacing: -0.03em;
+        font-size: 1.35rem;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 1.02rem;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        max-width: 760px;
+        font-size: 1rem;
+        margin-top: 14px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--muted);
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+
+      .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        background: var(--done);
+        box-shadow: 0 0 16px var(--done);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .card,
+      .phase {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 22px;
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.24);
+      }
+
       .progress-wrap { margin-top: 16px; }
-      .progress-label { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.95rem; margin-bottom: 8px; }
-      .progress { height: 14px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden; border: 1px solid var(--border); }
-      .progress > div { height: 100%; width: 65%; background: linear-gradient(90deg, var(--done), var(--accent)); border-radius: 999px; }
-      .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 18px; }
-      .metric { background: rgba(15,23,42,0.65); border: 1px solid var(--border); border-radius: 18px; padding: 16px; }
-      .metric strong { display: block; font-size: 1.7rem; letter-spacing: -0.04em; }
-      .metric span { color: var(--muted); font-size: 0.9rem; }
-      .legend { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-      .pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); background: rgba(255,255,255,0.035); font-size: 0.86rem; }
-      .pill::before { content: ""; width: 9px; height: 9px; border-radius: 999px; background: var(--todo); }
+
+      .progress-label {
+        display: flex;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+      }
+
+      .progress {
+        height: 14px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+
+      .progress > div {
+        height: 100%;
+        width: 70%;
+        background: linear-gradient(90deg, var(--done), var(--accent));
+        border-radius: 999px;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .metric {
+        background: rgba(15, 23, 42, 0.65);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 16px;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 1.7rem;
+        letter-spacing: -0.04em;
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .legend {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 10px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.035);
+        font-size: 0.86rem;
+      }
+
+      .pill::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        background: var(--todo);
+      }
+
       .pill.done::before { background: var(--done); }
       .pill.doing::before { background: var(--doing); }
-      h2 { margin: 0 0 14px; letter-spacing: -0.03em; font-size: 1.35rem; }
-      h3 { margin: 0; font-size: 1.02rem; }
-      .section-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 18px; }
-      .phase { background: rgba(17,24,39,0.72); }
-      .phase-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 14px; }
-      .phase-status { font-size: 0.82rem; border-radius: 999px; padding: 5px 9px; color: #020617; font-weight: 700; white-space: nowrap; }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .phase { background: rgba(17, 24, 39, 0.72); }
+
+      .phase-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+
+      .phase-status {
+        font-size: 0.82rem;
+        border-radius: 999px;
+        padding: 5px 9px;
+        color: #020617;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
       .phase-status.done { background: var(--done); }
       .phase-status.doing { background: var(--doing); }
       .phase-status.todo { background: var(--todo); color: white; }
-      ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; }
-      li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: start; color: var(--text); padding: 10px; border-radius: 14px; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.055); }
-      .check { width: 22px; height: 22px; border-radius: 7px; display: inline-grid; place-items: center; font-size: 0.82rem; font-weight: 800; background: var(--todo); color: white; }
-      .done .check { background: var(--done); color: #022c22; }
-      .doing .check { background: var(--doing); color: #451a03; }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 9px;
+      }
+
+      li {
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        gap: 10px;
+        align-items: start;
+        color: var(--text);
+        padding: 10px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.055);
+      }
+
+      .check {
+        width: 22px;
+        height: 22px;
+        border-radius: 7px;
+        display: inline-grid;
+        place-items: center;
+        font-size: 0.82rem;
+        font-weight: 800;
+        background: var(--todo);
+        color: white;
+      }
+
+      .done .check {
+        background: var(--done);
+        color: #022c22;
+      }
+
+      .doing .check {
+        background: var(--doing);
+        color: #451a03;
+      }
+
       .item-title { font-weight: 700; }
-      .item-note { display: block; color: var(--muted); font-size: 0.88rem; margin-top: 2px; }
-      .timeline { display: grid; gap: 12px; }
-      .timeline-item { display: grid; grid-template-columns: 110px 1fr; gap: 14px; border-left: 2px solid rgba(255,255,255,0.12); padding-left: 16px; }
-      .date { color: var(--accent); font-weight: 800; font-size: 0.9rem; }
-      .footer-note { margin-top: 18px; color: var(--muted); font-size: 0.92rem; text-align: center; }
-      code { background: rgba(255,255,255,0.08); border: 1px solid var(--border); border-radius: 8px; padding: 2px 6px; color: #bae6fd; }
-      @media (max-width: 900px) { header, .hero, .section-grid { grid-template-columns: 1fr; display: grid; } .metrics { grid-template-columns: repeat(2, 1fr); } .timeline-item { grid-template-columns: 1fr; } }
-      @media (max-width: 520px) { .metrics { grid-template-columns: 1fr; } .container { width: min(100% - 20px, 1180px); padding-top: 24px; } }
+
+      .item-note {
+        display: block;
+        color: var(--muted);
+        font-size: 0.88rem;
+        margin-top: 2px;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 12px;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 14px;
+        border-left: 2px solid rgba(255, 255, 255, 0.12);
+        padding-left: 16px;
+      }
+
+      .date {
+        color: var(--accent);
+        font-weight: 800;
+        font-size: 0.9rem;
+      }
+
+      .footer-note {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        text-align: center;
+      }
+
+      code {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 2px 6px;
+        color: #bae6fd;
+      }
+
+      @media (max-width: 900px) {
+        header,
+        .hero,
+        .section-grid {
+          grid-template-columns: 1fr;
+          display: grid;
+        }
+
+        .metrics { grid-template-columns: repeat(2, 1fr); }
+        .timeline-item { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 520px) {
+        .metrics { grid-template-columns: 1fr; }
+        .container {
+          width: min(100% - 20px, 1180px);
+          padding-top: 24px;
+        }
+      }
     </style>
   </head>
+
   <body>
     <main class="container">
       <header>
         <div>
           <h1>KIM API Roadmap</h1>
-          <p class="subtitle">Painel visual para acompanhar a evolução do e-commerce KIM: backend, segurança, integrações, front-end, admin, checkout e deploy.</p>
+          <p class="subtitle">
+            Painel visual para acompanhar a evolução do e-commerce KIM: backend,
+            segurança, integrações, front-end, admin, checkout e deploy.
+          </p>
         </div>
-        <div class="badge"><span class="dot"></span> Última atualização: 10/06/2026</div>
+        <div class="badge">
+          <span class="dot"></span> Última atualização: 10/06/2026
+        </div>
       </header>
 
       <section class="hero">
         <div class="card">
           <h2>Progresso geral</h2>
-          <p class="subtitle">A base principal do backend já está funcionando: catálogo, cliente, endereço, admin, JWT, pedidos, itens, estoque, regras de status e autenticação de cliente. A decisão atual é finalizar e revisar o backend por completo antes de iniciar o front-end.</p>
+          <p class="subtitle">
+            A base principal do backend já está funcionando e agora passou por
+            uma revisão importante de segurança. O sistema já separa acessos de
+            admin e cliente, protege pedidos e endereços, e bloqueia rotas
+            antigas que expunham dados sensíveis.
+          </p>
+
           <div class="progress-wrap">
-            <div class="progress-label"><span>Progresso estimado do produto</span><strong>65%</strong></div>
+            <div class="progress-label">
+              <span>Progresso estimado do produto</span><strong>70%</strong>
+            </div>
             <div class="progress"><div></div></div>
           </div>
+
           <div class="metrics">
             <div class="metric"><strong>8</strong><span>módulos backend ativos</span></div>
-            <div class="metric"><strong>7</strong><span>blocos críticos concluídos</span></div>
-            <div class="metric"><strong>6</strong><span>frentes de backend restantes</span></div>
+            <div class="metric"><strong>8</strong><span>blocos críticos concluídos</span></div>
+            <div class="metric"><strong>5</strong><span>frentes de backend restantes</span></div>
             <div class="metric"><strong>2</strong><span>perfis autenticados</span></div>
           </div>
+
           <div class="legend">
             <span class="pill done">Concluído</span>
             <span class="pill doing">Em andamento / próximo</span>
@@ -110,9 +371,9 @@
         <div class="card">
           <h2>Próximo foco</h2>
           <ul>
-            <li class="doing"><span class="check">→</span><span><span class="item-title">Revisão de segurança do backend</span><span class="item-note">Revisar rotas públicas, permissões, tokens, acessos de admin e cliente, e fechar brechas antes do front.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Swagger Authorize</span><span class="item-note">Configurar autenticação JWT direto no Swagger para testar admin e cliente sem PowerShell.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Histórico do pedido</span><span class="item-note">Criar uma linha do tempo do pedido, registrando criação, pagamento, envio, entrega e cancelamento.</span></span></li>
+            <li class="doing"><span class="check">→</span><span><span class="item-title">Histórico do pedido</span><span class="item-note">Criar uma linha do tempo do pedido, registrando criação, pagamento, envio, entrega e cancelamento.</span></span></li>
+            <li><span class="check">•</span><span><span class="item-title">Validações finais</span><span class="item-note">Melhorar validações de cadastro, pedido, quantidade, CPF, e-mail e campos obrigatórios.</span></span></li>
+            <li><span class="check">•</span><span><span class="item-title">Cancelamento de pedido</span><span class="item-note">Cancelar pedido e, quando necessário, devolver estoque de forma controlada.</span></span></li>
             <li><span class="check">•</span><span><span class="item-title">Pagamento Mercado Pago</span><span class="item-note">Preparar criação de pagamento, salvar <code>paymentId</code> e receber webhook.</span></span></li>
           </ul>
         </div>
@@ -125,8 +386,8 @@
             <li class="done"><span class="check">✓</span><span><span class="item-title">Category Module</span><span class="item-note">Categorias e subcategorias.</span></span></li>
             <li class="done"><span class="check">✓</span><span><span class="item-title">Product Module</span><span class="item-note">Produtos ativos, slug, categoria e variantes.</span></span></li>
             <li class="done"><span class="check">✓</span><span><span class="item-title">Customer Module</span><span class="item-note">Cliente com conta, guest e autenticação própria.</span></span></li>
-            <li class="done"><span class="check">✓</span><span><span class="item-title">Address Module</span><span class="item-note">Endereços por cliente e principal.</span></span></li>
-            <li class="done"><span class="check">✓</span><span><span class="item-title">Admin + JWT</span><span class="item-note">Login admin, BCrypt, JWT e rotas protegidas.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Address Module</span><span class="item-note">Endereços por cliente, agora acessados de forma segura pelo cliente logado.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Admin + JWT</span><span class="item-note">Login admin, BCrypt, JWT, roles e rotas protegidas.</span></span></li>
             <li class="done"><span class="check">✓</span><span><span class="item-title">Order + OrderItem</span><span class="item-note">Pedido, itens, total calculado no backend e respostas completas.</span></span></li>
           </ul>
         </div>
@@ -143,14 +404,15 @@
         </div>
 
         <div class="phase">
-          <div class="phase-top"><h2>Fase 3 — Segurança & Qualidade</h2><span class="phase-status doing">próximo foco</span></div>
+          <div class="phase-top"><h2>Fase 3 — Segurança & Qualidade</h2><span class="phase-status done">concluído parcial</span></div>
           <ul>
-            <li class="doing"><span class="check">→</span><span><span class="item-title">Revisão das rotas públicas</span><span class="item-note">Garantir que dados de pedidos, clientes e administração não fiquem acessíveis sem permissão.</span></span></li>
-            <li class="doing"><span class="check">→</span><span><span class="item-title">Permissões ADMIN e CUSTOMER</span><span class="item-note">Separar claramente o que é rota de administrador e o que é rota de cliente.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Swagger Authorize</span><span class="item-note">Adicionar botão de autenticação no Swagger para testar rotas protegidas com token.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Validação de dados</span><span class="item-note">Melhorar validações de cadastro, pedido, quantidade, e-mail, CPF e campos obrigatórios.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Cadastro de cliente mais limpo</span><span class="item-note">Trocar o uso de <code>senhaHash</code> no request por um campo público mais correto, como <code>senha</code>.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Tratamento de erros</span><span class="item-note">Padronizar mensagens de erro para facilitar testes e uso pelo futuro front-end.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Roles no token</span><span class="item-note">JWT agora diferencia <code>ADMIN</code> e <code>CUSTOMER</code> dentro do Spring Security.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Separação de permissões</span><span class="item-note">Cliente acessa área de cliente; admin acessa área administrativa; acesso indevido retorna <code>403</code>.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Pedidos protegidos</span><span class="item-note">Rotas públicas antigas de pedidos foram removidas; listagem geral agora fica em <code>/api/admin/orders</code>.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Cliente e endereço protegidos</span><span class="item-note">Dados pessoais e endereços passaram para rotas seguras como <code>/api/customer/me</code>.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Swagger Authorize</span><span class="item-note">Swagger agora possui botão de autenticação com token JWT.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Erros padronizados</span><span class="item-note">Rotas removidas agora retornam <code>404</code> ou <code>405</code>, em vez de erro interno <code>500</code>.</span></span></li>
+            <li class="doing"><span class="check">→</span><span><span class="item-title">Validações de request</span><span class="item-note">Próximo ajuste: validar dados obrigatórios, CPF, e-mail, quantidade e senha.</span></span></li>
           </ul>
         </div>
 
@@ -194,13 +456,16 @@
           <div class="timeline-item"><div class="date">02/06</div><div><h3>Fundação do projeto</h3><p class="subtitle">Spring Boot, PostgreSQL, estrutura inicial e módulos base do catálogo.</p></div></div>
           <div class="timeline-item"><div class="date">03/06</div><div><h3>Admin e autenticação</h3><p class="subtitle">AdminUser, BCrypt, JWT, login administrativo e rotas protegidas.</p></div></div>
           <div class="timeline-item"><div class="date">04/06</div><div><h3>Pedido real</h3><p class="subtitle">Order, OrderItem, enum de status, total calculado, rota admin protegida e remoção do endpoint temporário.</p></div></div>
-          <div class="timeline-item"><div class="date">08/06</div><div><h3>Estoque, status e pedidos completos</h3><p class="subtitle">Validação de estoque antes de adicionar itens, baixa automática ao pagar, regras de transição de status e retorno de pedidos com itens nas listagens e no detalhe.</p></div></div>
+          <div class="timeline-item"><div class="date">08/06</div><div><h3>Estoque, status e pedidos completos</h3><p class="subtitle">Validação de estoque antes de adicionar itens, baixa automática ao pagar, regras de transição de status e retorno de pedidos com itens.</p></div></div>
           <div class="timeline-item"><div class="date">09/06</div><div><h3>Autenticação de cliente e pedidos próprios</h3><p class="subtitle">Login de cliente com token <code>CUSTOMER</code>, rotas protegidas para acompanhamento de pedidos e bloqueio de acesso a pedidos de outros clientes.</p></div></div>
-          <div class="timeline-item"><div class="date">10/06</div><div><h3>Decisão de finalizar o backend antes do front</h3><p class="subtitle">O próximo ciclo do projeto passa a focar em segurança, validação de token, revisão de rotas, qualidade de API, features finais de e-commerce e preparo para servidor.</p></div></div>
+          <div class="timeline-item"><div class="date">10/06</div><div><h3>Revisão de segurança e controle de acesso</h3><p class="subtitle">Separação real entre <code>ADMIN</code> e <code>CUSTOMER</code>, Swagger Authorize, proteção de pedidos, clientes e endereços, e correção de erros 404/405.</p></div></div>
         </div>
       </section>
 
-      <p class="footer-note">Estratégia atual: concluir e revisar o backend antes de iniciar o front-end, reduzindo retrabalho e deixando a API pronta para uma loja real.</p>
+      <p class="footer-note">
+        Estratégia atual: concluir e revisar o backend antes de iniciar o front-end,
+        reduzindo retrabalho e deixando a API pronta para uma loja real.
+      </p>
     </main>
   </body>
 </html>
