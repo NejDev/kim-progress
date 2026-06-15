@@ -125,7 +125,7 @@
 
       .progress > div {
         height: 100%;
-        width: 70%;
+        width: 82%;
         background: linear-gradient(90deg, var(--done), var(--accent));
         border-radius: 999px;
       }
@@ -333,7 +333,7 @@
           </p>
         </div>
         <div class="badge">
-          <span class="dot"></span> Última atualização: 10/06/2026
+          <span class="dot"></span> Última atualização: 11/06/2026
         </div>
       </header>
 
@@ -341,23 +341,24 @@
         <div class="card">
           <h2>Progresso geral</h2>
           <p class="subtitle">
-            A base principal do backend já está funcionando e agora passou por
-            uma revisão importante de segurança. O sistema já separa acessos de
-            admin e cliente, protege pedidos e endereços, e bloqueia rotas
-            antigas que expunham dados sensíveis.
+            O backend avançou para uma base bem próxima de produto real: além de catálogo,
+            cliente, pedido, estoque e segurança, agora também existem validações melhores,
+            cadastro de cliente por DTO, histórico de eventos do pedido, cancelamento,
+            cupom de desconto, preparação de Mercado Pago, CORS e variáveis de ambiente
+            para produção.
           </p>
 
           <div class="progress-wrap">
             <div class="progress-label">
-              <span>Progresso estimado do produto</span><strong>70%</strong>
+              <span>Progresso estimado do produto</span><strong>82%</strong>
             </div>
             <div class="progress"><div></div></div>
           </div>
 
           <div class="metrics">
-            <div class="metric"><strong>8</strong><span>módulos backend ativos</span></div>
-            <div class="metric"><strong>8</strong><span>blocos críticos concluídos</span></div>
-            <div class="metric"><strong>5</strong><span>frentes de backend restantes</span></div>
+            <div class="metric"><strong>11</strong><span>módulos backend ativos</span></div>
+            <div class="metric"><strong>13</strong><span>blocos críticos concluídos</span></div>
+            <div class="metric"><strong>4</strong><span>frentes de backend restantes</span></div>
             <div class="metric"><strong>2</strong><span>perfis autenticados</span></div>
           </div>
 
@@ -371,81 +372,81 @@
         <div class="card">
           <h2>Próximo foco</h2>
           <ul>
-            <li class="doing"><span class="check">→</span><span><span class="item-title">Histórico do pedido</span><span class="item-note">Criar uma linha do tempo do pedido, registrando criação, pagamento, envio, entrega e cancelamento.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Validações finais</span><span class="item-note">Melhorar validações de cadastro, pedido, quantidade, CPF, e-mail e campos obrigatórios.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Cancelamento de pedido</span><span class="item-note">Cancelar pedido e, quando necessário, devolver estoque de forma controlada.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Pagamento Mercado Pago</span><span class="item-note">Preparar criação de pagamento, salvar <code>paymentId</code> e receber webhook.</span></span></li>
+            <li class="doing"><span class="check">→</span><span><span class="item-title">Validar fluxo ponta a ponta</span><span class="item-note">Testar cliente, pedido, cupom, cancelamento, eventos e pagamento em sequência.</span></span></li>
+            <li><span class="check">•</span><span><span class="item-title">Polir Mercado Pago</span><span class="item-note">Configurar token real/sandbox, webhook público e validar retorno do pagamento.</span></span></li>
+            <li><span class="check">•</span><span><span class="item-title">Upload de imagens</span><span class="item-note">Preparar produtos e personalizações para receber arquivos e imagens.</span></span></li>
+            <li><span class="check">•</span><span><span class="item-title">Front-end</span><span class="item-note">Iniciar a loja visual quando o backend estiver validado de ponta a ponta.</span></span></li>
           </ul>
         </div>
       </section>
 
       <section class="section-grid">
         <div class="phase">
-          <div class="phase-top"><h2>Fase 1 — Backend Core</h2><span class="phase-status done">bem avançado</span></div>
+          <div class="phase-top"><h2>Fase 1 — Backend Core</h2><span class="phase-status done">concluído</span></div>
           <ul>
             <li class="done"><span class="check">✓</span><span><span class="item-title">Category Module</span><span class="item-note">Categorias e subcategorias.</span></span></li>
             <li class="done"><span class="check">✓</span><span><span class="item-title">Product Module</span><span class="item-note">Produtos ativos, slug, categoria e variantes.</span></span></li>
-            <li class="done"><span class="check">✓</span><span><span class="item-title">Customer Module</span><span class="item-note">Cliente com conta, guest e autenticação própria.</span></span></li>
-            <li class="done"><span class="check">✓</span><span><span class="item-title">Address Module</span><span class="item-note">Endereços por cliente, agora acessados de forma segura pelo cliente logado.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Customer Module</span><span class="item-note">Cliente com conta, guest, login próprio e cadastro público por DTO.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Address Module</span><span class="item-note">Endereços por cliente, acessados de forma segura pelo cliente logado.</span></span></li>
             <li class="done"><span class="check">✓</span><span><span class="item-title">Admin + JWT</span><span class="item-note">Login admin, BCrypt, JWT, roles e rotas protegidas.</span></span></li>
             <li class="done"><span class="check">✓</span><span><span class="item-title">Order + OrderItem</span><span class="item-note">Pedido, itens, total calculado no backend e respostas completas.</span></span></li>
           </ul>
         </div>
 
         <div class="phase">
-          <div class="phase-top"><h2>Fase 2 — Pedido real</h2><span class="phase-status done">bem avançado</span></div>
+          <div class="phase-top"><h2>Fase 2 — Pedido real</h2><span class="phase-status done">concluído parcial</span></div>
           <ul>
             <li class="done"><span class="check">✓</span><span><span class="item-title">Estoque</span><span class="item-note">Validação antes de adicionar item e baixa automática quando pedido vira <code>PAGO</code>.</span></span></li>
             <li class="done"><span class="check">✓</span><span><span class="item-title">Transição de status</span><span class="item-note">Fluxo controlado: <code>PENDENTE → PAGO → EM_SEPARACAO → ENVIADO → ENTREGUE</code>, com bloqueio de transições inválidas.</span></span></li>
-            <li class="done"><span class="check">✓</span><span><span class="item-title">Pedido completo</span><span class="item-note">Pedidos retornam itens, subtotal, frete, total e dados principais para listagem e detalhe.</span></span></li>
-            <li class="done"><span class="check">✓</span><span><span class="item-title">Cliente acompanha pedidos</span><span class="item-note">Login de cliente com JWT, token <code>CUSTOMER</code>, rotas protegidas e acesso restrito aos próprios pedidos.</span></span></li>
-            <li class="doing"><span class="check">→</span><span><span class="item-title">Cancelamento</span><span class="item-note">Cancelar pedido e, se necessário, devolver estoque de forma controlada.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Cliente acompanha pedidos</span><span class="item-note">Cliente logado vê apenas os próprios pedidos e detalhes.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Histórico de eventos</span><span class="item-note">Pedidos registram eventos como criação, mudança de status, pagamento aprovado e cancelamento.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Cancelamento</span><span class="item-note">Cliente e admin possuem rotas de cancelamento com regras de negócio.</span></span></li>
+            <li class="doing"><span class="check">→</span><span><span class="item-title">Teste ponta a ponta</span><span class="item-note">Validar o fluxo completo com pedido real, evento, cupom, cancelamento e pagamento.</span></span></li>
           </ul>
         </div>
 
         <div class="phase">
-          <div class="phase-top"><h2>Fase 3 — Segurança & Qualidade</h2><span class="phase-status done">concluído parcial</span></div>
+          <div class="phase-top"><h2>Fase 3 — Segurança & Qualidade</h2><span class="phase-status done">bem avançado</span></div>
           <ul>
-            <li class="done"><span class="check">✓</span><span><span class="item-title">Roles no token</span><span class="item-note">JWT agora diferencia <code>ADMIN</code> e <code>CUSTOMER</code> dentro do Spring Security.</span></span></li>
-            <li class="done"><span class="check">✓</span><span><span class="item-title">Separação de permissões</span><span class="item-note">Cliente acessa área de cliente; admin acessa área administrativa; acesso indevido retorna <code>403</code>.</span></span></li>
-            <li class="done"><span class="check">✓</span><span><span class="item-title">Pedidos protegidos</span><span class="item-note">Rotas públicas antigas de pedidos foram removidas; listagem geral agora fica em <code>/api/admin/orders</code>.</span></span></li>
-            <li class="done"><span class="check">✓</span><span><span class="item-title">Cliente e endereço protegidos</span><span class="item-note">Dados pessoais e endereços passaram para rotas seguras como <code>/api/customer/me</code>.</span></span></li>
-            <li class="done"><span class="check">✓</span><span><span class="item-title">Swagger Authorize</span><span class="item-note">Swagger agora possui botão de autenticação com token JWT.</span></span></li>
-            <li class="done"><span class="check">✓</span><span><span class="item-title">Erros padronizados</span><span class="item-note">Rotas removidas agora retornam <code>404</code> ou <code>405</code>, em vez de erro interno <code>500</code>.</span></span></li>
-            <li class="doing"><span class="check">→</span><span><span class="item-title">Validações de request</span><span class="item-note">Próximo ajuste: validar dados obrigatórios, CPF, e-mail, quantidade e senha.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Roles no token</span><span class="item-note">JWT diferencia <code>ADMIN</code> e <code>CUSTOMER</code> dentro do Spring Security.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Permissões separadas</span><span class="item-note">Cliente acessa área de cliente; admin acessa área administrativa; acesso indevido retorna <code>403</code>.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Rotas sensíveis protegidas</span><span class="item-note">Pedidos, dados de cliente e endereços não ficam mais expostos por ID público.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Swagger Authorize</span><span class="item-note">Swagger possui autenticação com token JWT.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Validação de request</span><span class="item-note">Bean Validation foi adicionada para DTOs importantes como cliente, cupom e aplicação de cupom.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Erros padronizados</span><span class="item-note">Rotas removidas retornam <code>404</code> ou <code>405</code>, evitando erro interno genérico.</span></span></li>
           </ul>
         </div>
 
         <div class="phase">
-          <div class="phase-top"><h2>Fase 4 — Features de e-commerce</h2><span class="phase-status todo">pendente</span></div>
+          <div class="phase-top"><h2>Fase 4 — Features de e-commerce</h2><span class="phase-status done">concluído parcial</span></div>
           <ul>
-            <li class="doing"><span class="check">→</span><span><span class="item-title">Histórico de eventos do pedido</span><span class="item-note">Registrar cada etapa do pedido em uma timeline: criado, pago, separado, enviado, entregue ou cancelado.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Cupom de desconto</span><span class="item-note">Criar uma regra simples de cupom para deixar o projeto com cara mais completa de e-commerce.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Pagamento Mercado Pago</span><span class="item-note">Criar pagamento, salvar paymentId e receber webhook.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Webhook de pagamento</span><span class="item-note">Quando aprovado, mudar pedido para <code>PAGO</code> e baixar estoque automaticamente.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Cupom de desconto</span><span class="item-note">Módulo de cupom criado, com validação, aplicação e remoção em pedidos.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Eventos do pedido</span><span class="item-note">Timeline do pedido disponível para cliente e admin.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Cancelamento de pedido</span><span class="item-note">Rotas de cancelamento para cliente e admin foram adicionadas.</span></span></li>
+            <li class="doing"><span class="check">→</span><span><span class="item-title">Mercado Pago</span><span class="item-note">Criação de preference e webhook foram preparados; falta validar com credenciais reais/sandbox.</span></span></li>
             <li><span class="check">•</span><span><span class="item-title">Upload de imagens</span><span class="item-note">Preparar produtos e personalizações para receber arquivos e imagens.</span></span></li>
           </ul>
         </div>
 
         <div class="phase">
-          <div class="phase-top"><h2>Fase 5 — Produção & Servidor</h2><span class="phase-status todo">pendente</span></div>
+          <div class="phase-top"><h2>Fase 5 — Produção & Servidor</h2><span class="phase-status doing">em preparação</span></div>
           <ul>
-            <li><span class="check">•</span><span><span class="item-title">Variáveis de ambiente</span><span class="item-note">Tirar configurações sensíveis do código e preparar <code>JWT_SECRET</code>, banco e integrações.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">CORS</span><span class="item-note">Liberar somente a origem correta do front-end quando o sistema for publicado.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Health check</span><span class="item-note">Criar endpoint seguro para verificar se o servidor está de pé.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Logs e auditoria básica</span><span class="item-note">Melhorar visibilidade sobre erros, acessos importantes e ações críticas.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Deploy backend</span><span class="item-note">Preparar o backend para rodar fora da máquina local com banco PostgreSQL e configurações seguras.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Variáveis de ambiente</span><span class="item-note">JWT secret, banco, CORS e Mercado Pago foram preparados para configuração por ambiente.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">Profile prod</span><span class="item-note">Configuração de produção criada com valores sensíveis vindos de variáveis de ambiente.</span></span></li>
+            <li class="done"><span class="check">✓</span><span><span class="item-title">CORS</span><span class="item-note">CORS configurável por variável de ambiente para o futuro front-end.</span></span></li>
+            <li class="doing"><span class="check">→</span><span><span class="item-title">Deploy backend</span><span class="item-note">Ainda falta publicar a API em ambiente externo com PostgreSQL configurado.</span></span></li>
+            <li><span class="check">•</span><span><span class="item-title">Health check e observabilidade</span><span class="item-note">Actuator já existe; falta validar exposição e uso em produção.</span></span></li>
           </ul>
         </div>
 
         <div class="phase">
-          <div class="phase-top"><h2>Fase 6 — Front-end</h2><span class="phase-status todo">aguardando backend</span></div>
+          <div class="phase-top"><h2>Fase 6 — Front-end</h2><span class="phase-status todo">aguardando validação</span></div>
           <ul>
             <li><span class="check">•</span><span><span class="item-title">Setup Next.js</span><span class="item-note">TypeScript, Tailwind e client de API.</span></span></li>
             <li><span class="check">•</span><span><span class="item-title">Catálogo público</span><span class="item-note">Home, categorias, produto e variantes.</span></span></li>
             <li><span class="check">•</span><span><span class="item-title">Carrinho</span><span class="item-note">LocalStorage no início, backend valida preço real.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Checkout</span><span class="item-note">Fluxo de compra com cliente, endereço, pedido e pagamento.</span></span></li>
-            <li><span class="check">•</span><span><span class="item-title">Meus pedidos</span><span class="item-note">Histórico e acompanhamento do status usando o token <code>CUSTOMER</code>.</span></span></li>
+            <li><span class="check">•</span><span><span class="item-title">Checkout</span><span class="item-note">Fluxo de compra com cliente, endereço, pedido, cupom e pagamento.</span></span></li>
+            <li><span class="check">•</span><span><span class="item-title">Meus pedidos</span><span class="item-note">Histórico, eventos e acompanhamento do status usando o token <code>CUSTOMER</code>.</span></span></li>
           </ul>
         </div>
       </section>
@@ -459,11 +460,12 @@
           <div class="timeline-item"><div class="date">08/06</div><div><h3>Estoque, status e pedidos completos</h3><p class="subtitle">Validação de estoque antes de adicionar itens, baixa automática ao pagar, regras de transição de status e retorno de pedidos com itens.</p></div></div>
           <div class="timeline-item"><div class="date">09/06</div><div><h3>Autenticação de cliente e pedidos próprios</h3><p class="subtitle">Login de cliente com token <code>CUSTOMER</code>, rotas protegidas para acompanhamento de pedidos e bloqueio de acesso a pedidos de outros clientes.</p></div></div>
           <div class="timeline-item"><div class="date">10/06</div><div><h3>Revisão de segurança e controle de acesso</h3><p class="subtitle">Separação real entre <code>ADMIN</code> e <code>CUSTOMER</code>, Swagger Authorize, proteção de pedidos, clientes e endereços, e correção de erros 404/405.</p></div></div>
+          <div class="timeline-item"><div class="date">11/06</div><div><h3>Features avançadas de backend</h3><p class="subtitle">Validações, DTO de cadastro de cliente, histórico de eventos do pedido, cancelamento, cupons, preparação do Mercado Pago, CORS e variáveis de ambiente.</p></div></div>
         </div>
       </section>
 
       <p class="footer-note">
-        Estratégia atual: concluir e revisar o backend antes de iniciar o front-end,
+        Estratégia atual: validar o backend de ponta a ponta antes de iniciar o front-end,
         reduzindo retrabalho e deixando a API pronta para uma loja real.
       </p>
     </main>
